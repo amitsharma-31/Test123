@@ -11,6 +11,9 @@ jobs:
       
       - name: display files
         run: ls -l
+      
+      - name: show me main.tf file
+        run: cat main.tf
 
       - name: use terraform action
         uses: hashicorp/setup-terraform@v4
