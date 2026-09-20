@@ -6,11 +6,20 @@ jobs:
     steps:
       - name: First step
         run: echo "This is our first step within our job 1 of workflow 1"
+      - name: Clone my repo
+        uses: actions/checkout@v7
       
-      - name: Second step
+      - name: display files
         run: ls -l
-  
-      - uses: actions/checkout@v7
+      
+      - name: show me main.tf file
+        run: cat main.tf
 
-      - name: Display readme file
-        run: cat README.md
+      - name: use terraform action
+        uses: hashicorp/setup-terraform@v4
+      
+      - name: terraform initialize
+        run: terraform init
+
+      - name: terraform plan
+        run: terraform plan
