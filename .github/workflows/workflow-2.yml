@@ -1,16 +1,19 @@
-name: worklow number 1
+name: Terraform Deploy
 on: push
 jobs:
-  first_job:
+  terraform_main_job:
     runs-on: ubuntu-latest
     steps:
       - name: First step
         run: echo "This is our first step within our job 1 of workflow 1"
       - name: Clone my repo
         uses: actions/checkout@v7
-      
+        with:
+          ref: patch/test
       - name: display files
         run: ls -l
+      - name: use terraform action
+        uses: hashicorp/setup-terraform@v4
       
       - name: terraform initialize
         run: terraform init
