@@ -8,12 +8,18 @@ jobs:
         run: echo "This is our first step within our job 1 of workflow 1"
       - name: Clone my repo
         uses: actions/checkout@v7
-      
+
+      - name: Terraform linter
+        uses: terraform-linters/setup-tflint@v6
+
+      - name: Show version
+        run: tflint --version
+
+      - name: Init TFLint
+        run: tflint --init
+
       - name: display files
         run: ls -l
-      
-      - name: show me main.tf file
-        run: cat main.tf
 
       - name: use terraform action
         uses: hashicorp/setup-terraform@v4
