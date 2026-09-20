@@ -1,0 +1,14 @@
+name: worklow number 1
+on: push
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step
+        run: echo "This is our first step within our job 1 of workflow 1"
+      
+      - name: Second step
+        run: ls -l
+  
+      - name: Display readme file
+        run: cat README.md
