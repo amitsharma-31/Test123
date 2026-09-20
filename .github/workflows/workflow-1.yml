@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Clone my repo
         uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: display files
         run: ls -l
