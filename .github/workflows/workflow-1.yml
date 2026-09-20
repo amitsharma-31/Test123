@@ -1,4 +1,4 @@
-name: worklow number 1
+name: CI JOB
 on: push
 jobs:
   first_CI_job:
@@ -19,23 +19,3 @@ jobs:
 
       - name: Init TFLint
         run: tflint --init
-
-  Second_CD_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone my repo
-        uses: actions/checkout@v7
-        with:
-          ref: main
-
-      - name: display files
-        run: ls -l
-
-      - name: use terraform action
-        uses: hashicorp/setup-terraform@v4
-      
-      - name: terraform initialize
-        run: terraform init
-
-      - name: terraform plan
-        run: terraform plan
