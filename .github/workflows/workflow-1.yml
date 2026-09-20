@@ -8,6 +8,8 @@ jobs:
         run: echo "This is our first step within our job 1 of workflow 1"
       - name: Clone my repo
         uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: Terraform linter
         uses: terraform-linters/setup-tflint@v6
