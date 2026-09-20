@@ -11,6 +11,9 @@ jobs:
       
       - name: display files
         run: ls -l
+
+      - name: use terraform action
+        uses: hashicorp/setup-terraform@v4
       
       - name: terraform initialize
         run: terraform init
