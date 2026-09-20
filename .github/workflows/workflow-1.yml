@@ -23,6 +23,9 @@ jobs:
   Second_CD_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Clone my repo
+        uses: actions/checkout@v7
+
       - name: display files
         run: ls -l
 
