@@ -10,5 +10,7 @@ jobs:
       - name: Second step
         run: ls -l
   
+      - uses: actions/checkout@v7
+
       - name: Display readme file
         run: cat README.md
