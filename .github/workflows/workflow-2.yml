@@ -1,5 +1,6 @@
 name: CD job
 on: push
+jobs:
   Second_CD_job:
     runs-on: ubuntu-latest
     steps:
