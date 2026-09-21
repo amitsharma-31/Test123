@@ -2,11 +2,14 @@ name: Variable at step level
 on: push
 jobs:
   docker-job-1:
+    env:
+      CONTAINER_REGISTRY: docker.io
+      DOCKER_USERNAME: test-user
+      IMAGE_NAME: my-test-imag
     runs-on: ubuntu-latest
     steps:
-      - name: name of the step
-        env:
-          CONTAINER_REGISTRY: docker.io
-          DOCKER_USERNAME: test-user
-          IMAGE_NAME: my-test-image
-        run: echo docker registry is ${{ env.CONTAINER_REGISTRY }}, image is ${{ env.IMAGE_NAME }} and image to use ${{ env.IMAGE_NAME }}
+      - name: name of the step1
+        run: echo docker registry is ${{ env.CONTAINER_REGISTRY }}
+
+      - name: name of the step2
+        run: echo docker image to use ${{ env.IMAGE_NAME }}
