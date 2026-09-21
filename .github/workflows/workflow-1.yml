@@ -1,25 +1,25 @@
-name: worklow number 1
+name: Storing artifact
 on: push
 jobs:
-  first_job:
+  build-job-1:
     runs-on: ubuntu-latest
     steps:
-      - name: First step
-        run: echo "This is our first step within our job 1 of workflow 1"
-      - name: Clone my repo
-        uses: actions/checkout@v7
-      
-      - name: display files
-        run: ls -l
-      
-      - name: show me main.tf file
-        run: cat main.tf
+      - name: Install binary
+        run: sudo apt-get install cowsay -y
 
-      - name: use terraform action
-        uses: hashicorp/setup-terraform@v4
-      
-      - name: terraform initialize
-        run: terraform init
+      - name: Execute cowsay example
+        run: cowsay -f dragon "Run for cover, I am a DRAGON…RAWR" >> dragon.txt
 
-      - name: terraform plan
-        run: terraform plan
+      - name: Upload Dragon text file
+        uses: actions/upload-artifact@v3
+        with:
+         name: dragon-text-file
+         path: dragon.txt
+
+  build-job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Dragon text file
+        uses: actions/download-artifact@v3
+        with:
+         name: dragon-text-file
