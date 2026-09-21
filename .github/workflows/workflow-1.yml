@@ -24,3 +24,5 @@ jobs:
         uses: actions/download-artifact@v7
         with:
          name: dragon-text-file
+      - name: print the content of file
+        run: cat dragon.txt
