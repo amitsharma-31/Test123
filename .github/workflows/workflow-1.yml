@@ -9,4 +9,4 @@ jobs:
           CONTAINER_REGISTRY: docker.io
           DOCKER_USERNAME: test-user
           IMAGE_NAME: my-test-image
-        run: echo docker registry is {{ env.CONTAINER_REGISTRY }}, image is {{ env.IMAGE_NAME }} and image to use {{ env.IMAGE_NAME }}
+        run: echo docker registry is ${{ env.CONTAINER_REGISTRY }}, image is ${{ env.IMAGE_NAME }} and image to use ${{ env.IMAGE_NAME }}
