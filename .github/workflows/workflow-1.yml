@@ -9,5 +9,7 @@ jobs:
     steps:
       - name: name of the step1
         run: echo test message
+      - name: name of the step2
+        run: echo test message22
       - name: Sleep
         run: sleep 600
