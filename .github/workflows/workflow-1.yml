@@ -1,14 +1,30 @@
-name: Matrix example2
-on: 
-  push:
-  workflow_dispatch:
+name: Matrix example5
+on: push
 jobs:
-  docker:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, ubuntu-20.04]
-        images: [hello-world, alpine]
-    runs-on: ${{ matrix.os }}
+  dump_context_logs:
+    runs-on: ubuntu-latest
     steps:
-      - name: Run image ${{ matrix.images }} on ${{ matrix.os }}
-        run: docker run ${{ matrix.images }}
+      - name: Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT" 
+      - name: Dump job Context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "JOB_CONTEXT"
+      - name: Dump steps Context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "STEPS_CONTEXT"
+      - name: Dump runner Context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "RUNNER_CONTEXT"
+      - name: Dump strategy Context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "STRATEGY_CONTEXT"
+      - name: Dump Secret Context
+        env:
+          SECRET_CONTEXT: ${{ toJson(secrets) }}
+        run: echo "SECRET_CONTEXT"
