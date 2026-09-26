@@ -1,20 +1,19 @@
-name: Example if expression
-on: push
-jobs:
-  build-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Some test ${{ github.ref }}
-        run: ls -ltra
-
-  deploy-job:
-    if: ${{ github.ref == 'refs/heads/main' }}     ##github.ref is context as explained in previous topic
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone my repo
-        uses: actions/checkout@v7
-        with:
-          ref: main
-
-      - name: Some test
-        run: cat README.md
+name: Example
+on:
+  push:
+    branches:
+      - main
+      - '!feature/*'   # ignoring pushing to any branch name starting with feature using !
+   pull_request:
+     types:
+      - opened
+      - closed
+    paths-ignore:   # Workflow will run when a PR is open or closed but exclude README.md file
+      - README.md
+    branches:       # configure workflow to only run on PR that target specific branches  
+      - main
+  jobs:
+    hello-job:
+      runs-on: ubuntu-latest
+      steps:
+      - run: echo This WF step is executed for event type - ${{ github.event_name}}  ##Job Context
