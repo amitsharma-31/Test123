@@ -4,11 +4,11 @@ jobs:
   build-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Some test {{ github.ref }}
+      - name: Some test ${{ github.ref }}
         run: ls -ltra
 
   deploy-job:
-    if: github.ref == 'ref/heads/main'     ##github.ref is context as explained in previous topic
+    if: ${{ github.ref == 'refs/heads/main' }}     ##github.ref is context as explained in previous topic
     runs-on: ubuntu-latest
     steps:
       - name: Clone my repo
