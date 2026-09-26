@@ -1,0 +1,42 @@
+on:
+  workflow_dispatch:
+    inputs:
+      run-tests:
+        description: "run-tests?"
+        type: boolean
+        required: true
+      test-type:
+        description: "what type of test to run?"
+        type: choice
+        options: 
+          - unit
+          - integration
+          - all
+        required: true
+      environments:
+        description: "choose an environment"
+        type: environment
+        required: true
+      build-number:
+        description: "Custom build number"
+        type: number
+        required: false
+      message:
+        description: "Random message"
+        type: string
+        required: false
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputs received
+        run: |
+          echo "Run Tests: ${{ inputs.run-tests }}"
+          echo "Test type: ${{ inputs.test-type }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Build No.: ${{ inputs.build-number }}"
+          echo "Message: ${{ inputs.message }}"
+
+      - name: Run test if requested
+        if: ${{ inputs.run-tests == 'true' }}    ##HERE is the human error so refer debug logs
+        run: echo running test
