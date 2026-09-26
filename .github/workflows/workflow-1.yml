@@ -16,4 +16,4 @@ jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
-    - run: echo This WF step is executed for event type - ${{ github.event_name}}  ##Job Context
+    - run: echo This WF step is executed for event type - ${{ github.event_name}}
