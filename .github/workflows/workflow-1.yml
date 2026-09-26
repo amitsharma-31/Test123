@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: name of the step2
-        run: echo docker image to use ${{ env.IMAGE_NAME }}
+        run: echo docker image to use $IMAGE_NAME
