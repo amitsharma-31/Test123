@@ -1,18 +1,11 @@
-name: Variable at step level
+name: Multiline example
 on: push
-env:
-  CONTAINER_REGISTRY: docker.io
-  DOCKER_USERNAME: test-user
-  IMAGE_NAME: my-test-imag
 jobs:
-  docker-job-1:
+  terraform_main_job:
     runs-on: ubuntu-latest
     steps:
-      - name: name of the step1
-        run: echo docker registry is ${{ env.CONTAINER_REGISTRY }}
-
-  docker-job-2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: name of the step2
-        run: echo docker image to use ${{ env.IMAGE_NAME }}
+      - name: First step
+        run: |               ## since it is yaml we have used | and than multiline statement
+          echo "Print some random message"
+          ls -ltra
+          cat README.md
