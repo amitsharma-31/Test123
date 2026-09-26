@@ -4,7 +4,7 @@ jobs:
   build-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Some test
+      - name: Some test {{ github.ref }}
         run: ls -ltra
 
   deploy-job:
