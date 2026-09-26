@@ -10,7 +10,7 @@ on:
       - closed
     paths-ignore:   # Workflow will run when a PR is open or closed but exclude README.md file
       - README.md
-    branches:       # configure workflow to only run on PR that target specific branches  
+    branches: 
       - main
 jobs:
   hello-job:
