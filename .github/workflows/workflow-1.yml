@@ -13,7 +13,7 @@ jobs:
       - name: Step1 checkout the repo
         uses: actions/checkout@v7
       - name: Step2
-        run: echo "USERNAME=$FUSER" >> GITHUB_ENV  ##Initializing new ENV variable
+        run: echo "USERNAME=$FNAME" >> GITHUB_ENV  ##Initializing new ENV variable
       - name: Step3
         run: |
           echo "Username ===== $USERNAME"
