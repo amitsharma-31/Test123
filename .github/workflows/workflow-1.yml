@@ -13,10 +13,9 @@ jobs:
       - name: Step1 checkout the repo
         uses: actions/checkout@v7
       - name: Step2
-        run: echo "USERNAME=${{ env.FNAME }}" >> GITHUB_ENV  ##Initializing new ENV variable
+        run: echo "USERNAME=${{ env.FNAME }}" >> $GITHUB_ENV  ##Initializing new ENV variable
       - name: Step3
         run: |
           echo "Username ===== $USERNAME"
-          exit 1
       - name: step4
         run: echo ${{ env.LNAME }}
